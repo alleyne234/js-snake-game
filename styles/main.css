@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #534563;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#title {
+    color: #dcc7ff;
+    font-size: 50px;
+    text-align: center;
+}
+
+#score, h2 {
+    color: #ffc06e;
+    text-align: center;
+}
+
+#game-over {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vh;
+    letter-spacing: 5px;
+    line-height: 1;
+    color: #ff2121;
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#snake-canvas {
+    background-color: rgb(141, 141, 141);
+    border: 5px solid rgb(54, 54, 54);
+    border-radius: 5px;
+}
+
+.grid {
+    background-image:
+      repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
+      repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
+    background-size: 20px 20px;
+}
