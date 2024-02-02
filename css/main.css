@@ -13,11 +13,6 @@ body {
     text-align: center;
 }
 
-#score, h2 {
-    color: #ffc06e;
-    text-align: center;
-}
-
 #game-over {
     position: absolute;
     text-align: center;
@@ -33,7 +28,9 @@ body {
 
 .wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10vw;
 }
 
 #snake-canvas {
@@ -47,4 +44,50 @@ body {
       repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
       repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
     background-size: 20px 20px;
+}
+
+#score-container {
+    border: 3px solid gray;
+    border-radius: 10px;
+}
+
+.score-card {
+    min-width: 100px;
+    max-width: 200px;
+    width: 15vw;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgba(255, 145, 0, 0.315);
+    margin: 5px;
+}
+
+.score-card p {
+    justify-content: center;
+    align-items: center;
+}
+
+.score-card-info {
+    color: #dcc7ff;
+}
+
+.score-card-title {
+    border: 1px solid yellow;
+    border-radius: 5px;
+    background-color: #ffc06e9a;
+}
+
+.score-card-title h3 {
+    margin: 5px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
 }

@@ -27,7 +27,7 @@ const snake = {
     
         if (newHead.x === apple.x && newHead.y === apple.y) {
             this.length++;
-            document.getElementById("score").innerText = this.length;
+            document.getElementById("player-score").innerText = this.length;
             generateNewApple();
         } else {
             this.body.pop();
@@ -134,7 +134,7 @@ async function gameOver() {
     await waitingKeypress();
     document.getElementById("game-over").style.display = "none";
     clearCanvas();
-    document.getElementById("score").innerText = 1;
+    document.getElementById("player-score").innerText = 1;
     initGame();
 }
 

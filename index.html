@@ -4,19 +4,48 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Snake</title>
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <h1 id="title">Snake</h1>
 
-        <h2>Score : <span id="score">1</span></h2>
-
         <div class="wrapper">
             <canvas id="snake-canvas" class="grid" width="400px" height="400px"></canvas>
+            <div id="score-container">
+                <div class="score-card">
+                    <div class="score-card-title flex justify-center">
+                        <h3>SCORE</h3>
+                    </div>
+
+                     <div class="score-card-info flex justify-center">
+                        <p id="player-score">1</p>
+                     </div>
+                </div>
+    
+                <div class="score-card">
+                    <div class="score-card-title flex justify-center">
+                        <h3>BEST</h3>
+                    </div>
+    
+                    <div class="score-card-info flex justify-center">
+                        <p id="best-score">0</p>
+                    </div>
+                </div>
+    
+                <div class="score-card">
+                    <div class="score-card-title flex justify-center">
+                        <h3>RANK</h3>
+                    </div>
+                    
+                    <div class="score-card-info flex justify-center">
+                        <p id="player-rank">0</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <h1 id="game-over">GAME OVER</h1>
 
-        <script src="scripts/game.js"></script>
+        <script src="js/game.js"></script>
     </body>
 </html>
