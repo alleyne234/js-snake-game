@@ -2,6 +2,10 @@ const canvas = document.getElementById("snake-canvas");
 const ctx = canvas.getContext("2d");
 const blockSize = 20;
 
+const gameOverMenu = document.getElementById("game-over");
+const playerScore = document.getElementById("player-score");
+const bestScore = document.getElementById("best-score");
+
 const snake = {
     body: [],
     length: 0,
@@ -27,7 +31,7 @@ const snake = {
     
         if (newHead.x === apple.x && newHead.y === apple.y) {
             this.length++;
-            document.getElementById("player-score").innerText = this.length;
+            playerScore.innerText = this.length;
             generateNewApple();
         } else {
             this.body.pop();
@@ -130,11 +134,16 @@ function gameLoop() {
 
 async function gameOver() {
     playerSnake.gameOver = true;
-    document.getElementById("game-over").style.display = "block";
+    gameOverMenu.style.display = "block";
+
+    if (playerSnake.length > bestScore.innerText) {
+        bestScore.innerText = playerSnake.length;
+    }
+
     await waitingKeypress();
-    document.getElementById("game-over").style.display = "none";
+    gameOverMenu.style.display = "none";
     clearCanvas();
-    document.getElementById("player-score").innerText = 1;
+    playerScore.innerText = 1;
     initGame();
 }
 
