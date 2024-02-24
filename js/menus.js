@@ -1,10 +1,3 @@
-const backToMenuBtn = document.getElementById('back-to-menu-btn');
-const mainMenu = document.getElementById('main-menu');
-const playerNameInput = document.getElementById('player-name');
-const settingsBtn = document.getElementById('settings-btn');
-const settingsMenu = document.getElementById('settings-menu');
-const startGameBtn = document.getElementById('start-game-btn');
-
 startGameBtn.addEventListener('click', () => {
     const playerName = playerNameInput.value.trim();
     if (playerName !== '') {

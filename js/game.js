@@ -1,9 +1,5 @@
-const canvas = document.getElementById("snake-canvas");
 const ctx = canvas.getContext("2d");
 const blockSize = 20;
-
-const playerScore = document.getElementById("player-score");
-const bestScore = document.getElementById("best-score");
 
 let apple = {};
 let gameLoopInterval;
@@ -87,6 +83,7 @@ function initGame() {
         y: Math.floor(Math.random() * (canvas.height / blockSize))
     };
 
+    playerScore.innerText = playerSnake.length;
     gameLoopInterval = setInterval(gameLoop, playerSnake.speed);
 }
 
@@ -132,6 +129,10 @@ function gameLoop() {
     } else {
         clearInterval(gameLoopInterval);
         mainMenu.style.display = "block";
+
+        if (playerSnake.length > bestScore.innerText) {
+            bestScore.innerText = playerSnake.length;
+        }
     }
 }
 
