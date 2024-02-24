@@ -2,9 +2,11 @@ const canvas = document.getElementById("snake-canvas");
 const ctx = canvas.getContext("2d");
 const blockSize = 20;
 
-const gameOverMenu = document.getElementById("game-over");
 const playerScore = document.getElementById("player-score");
 const bestScore = document.getElementById("best-score");
+
+let apple = {};
+let gameLoopInterval;
 
 const snake = {
     body: [],
@@ -85,7 +87,7 @@ function initGame() {
         y: Math.floor(Math.random() * (canvas.height / blockSize))
     };
 
-    gameLoop();
+    gameLoopInterval = setInterval(gameLoop, playerSnake.speed);
 }
 
 
@@ -127,39 +129,15 @@ function gameLoop() {
         playerSnake.checkCollision();
         playerSnake.draw();
         drawApple();
-        setTimeout(gameLoop, playerSnake.speed);
+    } else {
+        clearInterval(gameLoopInterval);
+        mainMenu.style.display = "block";
     }
 }
 
 
-async function gameOver() {
+function gameOver() {
     playerSnake.gameOver = true;
-    gameOverMenu.style.display = "block";
-
-    if (playerSnake.length > bestScore.innerText) {
-        bestScore.innerText = playerSnake.length;
-    }
-
-    await waitingKeypress();
-    gameOverMenu.style.display = "none";
-    clearCanvas();
-    playerScore.innerText = 1;
-    initGame();
-}
-
-
-function waitingKeypress() {
-    return new Promise((resolve) => {
-        document.addEventListener('keydown', onKeyHandler);
-        function onKeyHandler(e) {
-            if (e.keyCode === 13) {
-                document.removeEventListener('keydown', onKeyHandler);
-                resolve();
-            }
-        }
-    });
 }
 
 document.addEventListener("keydown", playerSnake.changeDirection);
-
-initGame();

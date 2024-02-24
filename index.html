@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Snake</title>
+        <title>Snake Game</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h1 id="title">Snake</h1>
+        <h1 id="title">Snake Game</h1>
 
         <div class="wrapper">
             <canvas id="snake-canvas" class="grid" width="400px" height="400px"></canvas>
@@ -44,8 +44,29 @@
             </div>
         </div>
 
-        <h1 id="game-over">GAME OVER</h1>
+        <div id="main-menu" class="menu">
+            <input type="text" id="player-name" placeholder="Surnom">
+            <button id="start-game-btn">Jouer</button>
+            <button id="settings-btn">Paramètres</button>
+        </div>
+
+        <div id="settings-menu" class="menu">
+            <h2>Paramètres</h2>
+
+            <div class="setting">
+                <label for="grid-size">Taille de la grille :</label>
+                <input type="number" id="grid-size" min="5" max="50" value="10">
+            </div>
+
+            <div class="setting">
+                <label for="snake-speed">Vitesse du serpent :</label>
+                <input type="number" id="snake-speed" min="1" max="100" value="10">
+            </div>
+
+            <button id="back-to-menu-btn">Retour</button>
+        </div>
 
         <script src="js/game.js"></script>
+        <script src="js/menus.js"></script>
     </body>
 </html>
