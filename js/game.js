@@ -76,7 +76,7 @@ function initGame() {
     }];
     playerSnake.length = 1;
     playerSnake.direction = { x: 0, y: 0 };
-    playerSnake.speed = 150;
+    playerSnake.speed = 1000 / snakeSpeed.value;
     playerSnake.gameOver = false;
     apple = {
         x: Math.floor(Math.random() * (canvas.width / blockSize)),

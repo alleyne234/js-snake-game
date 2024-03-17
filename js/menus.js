@@ -17,3 +17,8 @@ backToMenuBtn.addEventListener('click', () => {
     settingsMenu.style.display = 'none';
     mainMenu.style.display = 'block';
 });
+
+gridSize.addEventListener('change', () => {
+    canvas.width = gridSize.value * blockSize;
+    canvas.height = gridSize.value * blockSize;
+});
