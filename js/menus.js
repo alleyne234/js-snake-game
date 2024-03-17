@@ -4,7 +4,7 @@ startGameBtn.addEventListener('click', () => {
         mainMenu.style.display = 'none';
         initGame();
     } else {
-        alert('Veuillez saisir un surnom valide.');
+        alert('Please enter a nickname.');
     }
 });
 
