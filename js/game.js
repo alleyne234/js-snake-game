@@ -12,13 +12,13 @@ const snake = {
     gameOver: false,
 
     draw: function() {
-        ctx.fillStyle = '#A7C957';
+        ctx.fillStyle = '#285CC4';
         this.body.forEach((block, index) => {
             if (index === 0) {
-                ctx.fillStyle = '#6A994E';
+                ctx.fillStyle = '#143464';
             }
             ctx.fillRect(block.x * blockSize, block.y * blockSize, blockSize, blockSize);
-            ctx.fillStyle = '#A7C957';
+            ctx.fillStyle = '#285CC4';
         });
     },
     
@@ -29,7 +29,7 @@ const snake = {
     
         if (newHead.x === apple.x && newHead.y === apple.y) {
             this.length++;
-            playerScore.innerText = this.length;
+            playerScore.innerText = this.length - 1;
             generateNewApple();
         } else {
             this.body.pop();
@@ -83,13 +83,13 @@ function initGame() {
         y: Math.floor(Math.random() * (canvas.height / blockSize))
     };
 
-    playerScore.innerText = playerSnake.length;
+    playerScore.innerText = playerSnake.length - 1;
     gameLoopInterval = setInterval(gameLoop, playerSnake.speed);
 }
 
 
 function drawApple() {
-    ctx.fillStyle = '#D73340';
+    ctx.fillStyle = '#DF3E23';
     ctx.fillRect(apple.x * blockSize, apple.y * blockSize, blockSize, blockSize);
 }
 
@@ -128,10 +128,10 @@ function gameLoop() {
         drawApple();
     } else {
         clearInterval(gameLoopInterval);
-        mainMenu.style.display = "block";
+        mainMenu.classList.remove('hide');
 
         if (playerSnake.length > bestScore.innerText) {
-            bestScore.innerText = playerSnake.length;
+            bestScore.innerText = playerSnake.length - 1;
         }
     }
 }

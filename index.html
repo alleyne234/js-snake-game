@@ -4,68 +4,49 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Snake Game</title>
+        <link rel="icon" type="image/png" href="./img/favicon.png">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h1 id="title">Snake Game</h1>
+        <!-- Game Canvas -->
+        <canvas id="game-canvas" class="checkerboard" width="400px" height="400px"></canvas>
 
-        <div class="wrapper">
-            <canvas id="snake-canvas" class="grid" width="400px" height="400px"></canvas>
-            <div id="score-container">
-                <div class="score-card">
-                    <div class="score-card-title flex justify-center">
-                        <h3>SCORE</h3>
-                    </div>
-
-                    <div class="score-card-info flex justify-center">
-                        <p id="player-score">1</p>
-                    </div>
-                </div>
-    
-                <div class="score-card">
-                    <div class="score-card-title flex justify-center">
-                        <h3>BEST</h3>
-                    </div>
-    
-                    <div class="score-card-info flex justify-center">
-                        <p id="best-score">0</p>
-                    </div>
-                </div>
-    
-                <div class="score-card">
-                    <div class="score-card-title flex justify-center">
-                        <h3>RANK</h3>
-                    </div>
-                    
-                    <div class="score-card-info flex justify-center">
-                        <p id="player-rank">0</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!-- Main Menu -->
         <div id="main-menu" class="menu">
-            <input type="text" id="player-name" placeholder="Nickname">
-            <button id="start-game-btn">Play</button>
-            <button id="settings-btn">Settings</button>
+            <div class="menu-header pixel">
+                <!-- Player score -->
+                <div class="score-card">
+                    <img src="./img/apple.png" alt="pixel apple">
+                    <p id="player-score">0</p>
+                </div>
+                <!-- Best score -->
+                <div class="score-card">
+                    <img src="./img/trophy.png" alt="pixel trophy">
+                    <p id="best-score">0</p>
+                </div>
+            </div>
+            <button id="start-game-btn" class="menu-btn">Play</button>
+            <button id="settings-btn" class="menu-btn">Settings</button>
         </div>
 
-        <div id="settings-menu" class="menu">
-            <h2>Settings</h2>
-
-            <div class="setting">
-                <label for="grid-size">Grid size:</label>
-                <input type="number" id="grid-size" min="5" max="50" value="20">
+        <!-- Settings Menu -->
+        <div id="settings-menu" class="menu hide">
+            <div class="menu-header pixel">
+                <!-- Grid size -->
+                <div class="settings-parameter">
+                    <label for="grid-size">Grid size:</label>
+                    <input type="number" id="grid-size" min="5" max="50" value="20">
+                </div>
+                <!-- Snake speed -->
+                <div class="settings-parameter">
+                    <label for="snake-speed">Snake speed:</label>
+                    <input type="number" id="snake-speed" min="1" max="100" value="5">
+                </div>
             </div>
-
-            <div class="setting">
-                <label for="snake-speed">Snake speed:</label>
-                <input type="number" id="snake-speed" min="1" max="100" value="5">
-            </div>
-
-            <button id="back-to-menu-btn">Back</button>
+            <button id="back-to-menu-btn" class="menu-btn">Back</button>
         </div>
 
+        <!-- Scripts -->
         <script src="js/elements.js"></script>
         <script src="js/game.js"></script>
         <script src="js/menus.js"></script>

@@ -1,21 +1,16 @@
 startGameBtn.addEventListener('click', () => {
-    const playerName = playerNameInput.value.trim();
-    if (playerName !== '') {
-        mainMenu.style.display = 'none';
-        initGame();
-    } else {
-        alert('Please enter a nickname.');
-    }
+    mainMenu.classList.add('hide');
+    initGame();
 });
 
 settingsBtn.addEventListener('click', () => {
-    mainMenu.style.display = 'none';
-    settingsMenu.style.display = 'block';
+    mainMenu.classList.add('hide');
+    settingsMenu.classList.remove('hide');
 });
 
 backToMenuBtn.addEventListener('click', () => {
-    settingsMenu.style.display = 'none';
-    mainMenu.style.display = 'block';
+    settingsMenu.classList.add('hide');
+    mainMenu.classList.remove('hide');
 });
 
 gridSize.addEventListener('change', () => {

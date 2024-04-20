@@ -1,116 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+
+/***** GENERAL *****/
+:root {
+    --background: #1A7A3E;
+    --background-btn: #285CC4;
+    --checkerboard-white: #9CDB43;
+    --checkerboard-black: #59C135;
+    --checkerboard-border: #24523B;
+}
+
+* {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #534563;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
 }
 
-#title {
-    color: #dcc7ff;
-    font-size: 50px;
-    text-align: center;
-}
-
-.wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 10vw;
-}
-
-#snake-canvas {
-    background-color: rgb(141, 141, 141);
-    border: 5px solid rgb(54, 54, 54);
-    border-radius: 5px;
-}
-
-.grid {
-    background-image:
-        repeating-linear-gradient(#ccc 0 1px, transparent 1px 100%),
-        repeating-linear-gradient(90deg, #ccc 0 1px, transparent 1px 100%);
-    background-size: 20px 20px;
-}
-
-#score-container {
-    border: 3px solid gray;
-    border-radius: 10px;
-}
-
-.score-card {
-    min-width: 100px;
-    max-width: 200px;
-    width: 15vw;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: rgba(255, 145, 0, 0.315);
-    margin: 5px;
-}
-
-.score-card p {
-    justify-content: center;
-    align-items: center;
-}
-
-.score-card-info {
-    color: #dcc7ff;
-}
-
-.score-card-title {
-    border: 1px solid yellow;
-    border-radius: 5px;
-    background-color: #ffc06e9a;
-}
-
-.score-card-title h3 {
-    margin: 5px;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.flex {
-    display: flex;
-}
-
-.menu {
+#game-canvas {
+    border: 4px solid var(--checkerboard-border);
+    border-radius: 3px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
 }
 
-#settings-menu {
+.checkerboard {
+    background-position: 0px 0px, 20px 20px;
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(
+            45deg,
+            var(--checkerboard-black) 25%,
+            transparent 25%,
+            transparent 75%,
+            var(--checkerboard-black) 75%,
+            var(--checkerboard-black) 100%
+        ),
+        linear-gradient(
+            45deg,
+            var(--checkerboard-black) 25%,
+            var(--checkerboard-white) 25%,
+            var(--checkerboard-white) 75%,
+            var(--checkerboard-black) 75%,
+            var(--checkerboard-black) 100%
+        );
+}
+
+.pixel {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+
+/***** MENUS *****/
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+    height: 80vh;
+}
+
+.menu-header {
+    background-image: url('./../img/snake-main-menu-background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    aspect-ratio: 3/4;
+    height: 70%;
+    border-radius: 6px;
+    border: 4px solid var(--checkerboard-border);
+    border-radius: 3px;
+}
+
+.menu-btn {
+    border: none;
+    border-radius: 6px;
+    background-color: var(--background-btn);
+    margin-top: 10px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.hide {
     display: none;
 }
 
-.menu button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+
+/***** MAIN MENU *****/
+.score-card {
+    display: inline-block;
+    margin-top: 30%;
+    height: 30%;
+    width: 30%;
 }
 
-.menu input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.score-card img {
+    width: 70%;
 }
 
-.setting {
-    margin-bottom: 15px;
-    text-align: left;
+
+/***** SETTINGS MENU *****/
+#settings-menu .menu-header {
+    display: block;
+}
+
+.settings-parameter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.settings-parameter:first-of-type {
+    margin-top: 30%;
+}
+
+.settings-parameter label {
+    margin-left: 15%;
+}
+
+.settings-parameter input {
+    margin-right: 15%;
+    width: 15%;
 }
