@@ -29,7 +29,7 @@ const snake = {
     
         if (newHead.x === apple.x && newHead.y === apple.y) {
             this.length++;
-            playerScore.innerText = this.length - 1;
+            playerCurrentScore.innerText = this.length - 1;
             generateNewApple();
         } else {
             this.body.pop();
@@ -83,7 +83,7 @@ function initGame() {
         y: Math.floor(Math.random() * (canvas.height / blockSize))
     };
 
-    playerScore.innerText = playerSnake.length - 1;
+    playerCurrentScore.innerText = playerSnake.length - 1;
     gameLoopInterval = setInterval(gameLoop, playerSnake.speed);
 }
 
@@ -128,6 +128,7 @@ function gameLoop() {
         drawApple();
     } else {
         clearInterval(gameLoopInterval);
+        playerScore.innerText = playerCurrentScore.innerText;
         mainMenu.classList.remove('hide');
 
         if (playerSnake.length > bestScore.innerText) {

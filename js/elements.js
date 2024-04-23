@@ -8,6 +8,7 @@ const startGameBtn = document.getElementById('start-game-btn');
 
 // Scores
 const bestScore = document.getElementById("best-score");
+const playerCurrentScore = document.getElementById("player-current-score");
 const playerScore = document.getElementById("player-score");
 
 // Settings Menu

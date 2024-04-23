@@ -24,6 +24,32 @@ body {
     background-color: var(--background);
 }
 
+.pixel {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+
+/***** CURRENT SCORE *****/
+.current-score {
+    display: flex;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 30px;
+}
+
+.current-score img {
+    width: 50px;
+}
+
+.current-score p {
+    margin: 10px;
+}
+
+
+/***** GAME CANVAS *****/
 #game-canvas {
     border: 4px solid var(--checkerboard-border);
     border-radius: 3px;
@@ -53,12 +79,6 @@ body {
             var(--checkerboard-black) 75%,
             var(--checkerboard-black) 100%
         );
-}
-
-.pixel {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
 }
 
 
