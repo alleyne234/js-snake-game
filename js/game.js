@@ -9,7 +9,7 @@ const snake = {
     length: 0,
     direction: { x: 0, y: 0},
     speed: 0,
-    gameOver: false,
+    gameOver: true,
 
     draw: function() {
         ctx.fillStyle = '#285CC4';
